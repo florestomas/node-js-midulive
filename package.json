@@ -1,0 +1,35 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "Midudev sapeeeee",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florestomas/node-js-midulive.git"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "nodejs",
+    "mimdudev",
+    "mansi"
+  ],
+  "author": "Tomas Flores - mansi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/florestomas/node-js-midulive/issues"
+  },
+  "homepage": "https://github.com/florestomas/node-js-midulive#readme",
+  "dependencies": {
+    "picocolors": "1.0.1"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig":{
+    "extends": "standard"
+  }
+}

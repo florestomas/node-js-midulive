@@ -1,7 +1,11 @@
-const fs = require('node:fs')
 /*
-Si no tiene
+Esto solo en los modulos nativos que no tienen promesas nativas
+const {promisify} = require('node: util') // Con promisify podes usar el readFilePromse sin usar 'node:fs
+const readFilePromise = promisify(fs.readFile);
 */
+
+const fs = require('node:fs/promises')
+
 console.log('Leyendo el 1er archivo...')
 
 // para leer el archivo en CODIFICACION 'utf-8' text spanish
