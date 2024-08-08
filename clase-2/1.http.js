@@ -1,3 +1,4 @@
+const fs = require('node:fs')
 const http = require('node:http') /* Protocolo http
 
 es el protocolo de transferencia de hipertexto (Hypertext Transfer Protocol)
@@ -18,12 +19,24 @@ const desiredPort = process.env.PORT ?? 1234
 const processRequest = (req, res) => {
     console.log('request received: ', req.url) // este console.log lo vemos en nuestra terminal
     // 
-
+    res.setHeader('Content-Type', 'text/html; charset = utf-8')
     if (req.url === '/') {
         res.statusCode = 200 // OK;
-        res.setHeader('Content-Type', 'text/html; charset = utf-8')
+        // Cabecera
         res.end('<h1>Bienvenido a mi pagina de inicio SAPEE</h1>')
-    } else if (req.url === '/contacto') {
+    } else if (req.url === '/kkkk.jpg') { // Para cargar una imagen
+        res.setHeader('Content-Type', 'image/png')
+        fs.readFile('./kkkk.jpg', (err, data) => {
+            if (err) {
+                res.statusCode = 500
+                res.end('<h1>500 Internal Server Error</h1>')
+            } else {
+                res.setHeader('Content-Type', 'image/jpg')
+                res.end(data)
+            }
+        })
+    }
+    else if (req.url === '/contacto') {
         res.statusCode = 200 // OK
         res.end('Contacto')
     }

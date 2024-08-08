@@ -1,0 +1,16 @@
+#GET http://localhost:1234/pokemon/ditto
+
+
+
+POST http://localhost:1234/pokemon
+Content-Type: application/json
+
+{
+    "name": "ditto",
+    "type": "normal",
+    "moves": [
+        "transform"
+    ]
+}
+
+### Los chunks son como se manda la informacion desde el cliente para el SV
