@@ -33,8 +33,9 @@ app.disable('x-powered-by') // desabilitar que esta hecho con express
 app.get('/', (req, res) => {
     res.json({ message: 'Jelow world' })
 })
-
+/*
 app.get('/movies', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*') // CORS
     // Vamos a omdificar este app.get para que nos tire 1 genero nada mais
     const { genre } = req.query   // El query nos recupera datos de la URL
 
@@ -47,7 +48,18 @@ app.get('/movies', (req, res) => {
     }
     res.json(movies)
 })
-
+*/
+app.get('/movies', (req, res) => {
+    res.header('Access-Control-Allow-Origin', '*') // CORS
+    const { genre } = req.query
+    if (genre) {
+        const filteredMovies = movies.filter(
+            movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
+        )
+        return res.json(filteredMovies)
+    }
+    res.json(movies)
+})
 
 app.get('/movies/:id', (req, res) => { //:id parametro de la URL :
     const { id } = req.params // Pamaetros de la URL
@@ -65,6 +77,7 @@ app.get('/movies/:id', (req, res) => { //:id parametro de la URL :
 
 
 app.post('/movies', (req, res) => {
+
 
     const result = validateMovie(req.body)
 
